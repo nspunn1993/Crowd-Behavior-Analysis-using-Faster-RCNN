@@ -16,7 +16,7 @@ Download the following files:
 - Download the files from this repository.
 Extract the tensorflow object detection api repository and navigate to 
 ```
-.model-master/research/object_detection/. 
+.model-master/research/object_detection/ 
 ```
 Extract the object detection model and files from this repository there.
 Append the PYTHONPATH environment variable as
