@@ -25,7 +25,10 @@ Append the PYTHONPATH environment variable as
 
 # Step 2: Anaconda virtual environment
 I recommend to use miniconda instead of anaconda because of minimal already installed packages.
+
 Open the anaconda command prompt and type the following:
+
+Note: Before installing tensorflow-gpu you need to install CUDA and CuDNN with compatible versions. For more details you can refer [here](https://punndeeplearningblog.com/development/tensorflow-cuda-cudnn-compatibility/)
 ```
 - C:\> conda create -n objdet pip python=3.6
 - C:\> activate objdet
