@@ -19,7 +19,8 @@ Extract the tensorflow object detection api repository and navigate to
 .model-master/research/object_detection/. 
 ```
 Extract the object detection model and files from this repository there.
-Append the PYTHONPATH environment variable as 
+Append the PYTHONPATH environment variable as
+
 ```PYTHONPATH=<Model master path>;<Model master path>\research;<Model master path>\research\slim;```
 
 # Step 2: Anaconda virtual environment
@@ -46,6 +47,7 @@ Open the anaconda command prompt and type the following:
 You can test the setup as follows:
 
 ``` (objdet) C:\<model-master>\research\object_detection> jupyter notebook object_detection_tutorial.ipynb ```
+
 Run the jupyter notebook and it should run without any errors.
 
 # Step 3: Dataset
