@@ -69,6 +69,8 @@ The files test_labels.csv and train_labels.csv will be generated at \object_dete
 
 ``` (objdet) C:\<model-master>\research\object_detection> python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record ```
 
+You can also create your own dataset using [Open Image Dataset](https://storage.googleapis.com/openimages/web/index.html)
+
 # Step 4: Label map and configuration
 - Create a new file, labelmap.pbtxt, at ```C:\<model-master>\research\object_detection\training\```.
 - Edit the file with below format to represent different classes (based on requirement). In our example we need only one class i.e. head.
