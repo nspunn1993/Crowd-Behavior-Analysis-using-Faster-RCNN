@@ -44,6 +44,7 @@ Open the anaconda command prompt and type the following:
 - (objdet) C:\<model-master>\research> python setup.py install
 ```
 You can test the setup as follows:
+
 ``` (objdet) C:\<model-master>\research\object_detection> jupyter notebook object_detection_tutorial.ipynb ```
 Run the jupyter notebook and it should run without any errors.
 
