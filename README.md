@@ -28,7 +28,7 @@ I recommend to use miniconda instead of anaconda because of minimal already inst
 
 Open the anaconda command prompt and type the following:
 
-Note: Before installing tensorflow-gpu you need to install CUDA and CuDNN with compatible versions. For more details you can refer [here](https://punndeeplearningblog.com/development/tensorflow-cuda-cudnn-compatibility/)
+Note: Before installing tensorflow-gpu you need to install CUDA and CuDNN with compatible versions. For more details you can refer [here](https://punndeeplearningblog.com/development/tensorflow-cuda-cudnn-compatibility/).
 ```
 - C:\> conda create -n objdet pip python=3.6
 - C:\> activate objdet
@@ -51,7 +51,7 @@ You can test the setup as follows:
 
 ``` (objdet) C:\<model-master>\research\object_detection> jupyter notebook object_detection_tutorial.ipynb ```
 
-Run the jupyter notebook and it should run without any errors.
+The jupyter notebook should execute without any errors.
 
 # Step 3: Dataset
 
