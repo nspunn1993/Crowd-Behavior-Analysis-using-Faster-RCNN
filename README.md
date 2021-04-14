@@ -1,6 +1,7 @@
 # Crowd-Behavior-Analysis-using-Faster-RCNN
 Crowd Analysis for Congestion Control Early Warning System on Foot Over Bridge.
-This follows from the tensorflow object detection API available [here](https://github.com/tensorflow/models/tree/r1.12.0)
+
+This repository presents the setup of any tensorflow 1 based object detection model which we used in our paper.
 
 # Steps to follow
 - Set up the object detection directory structure and TensorflowGPU enable anaconda virtual envrironment.
@@ -69,7 +70,41 @@ The files test_labels.csv and train_labels.csv will be generated at \object_dete
 ``` (objdet) C:\<model-master>\research\object_detection> python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record ```
 
 # Step 4: Label map and configuration
+- Create a new file, labelmap.pbtxt, at ```C:\<model-master>\research\object_detection\training\```.
+- Edit the file with below format to represent different classes (based on requirement). In our example we need only one class i.e. head.
 
+``` 
+item {
+  id: 1
+  name: 'head'
+}
+```
+
+- To configure training pipeline, go to ```C:\<model-master>\research\object_detection\samples\configs``` and copy the faster_rcnn_inception_v2_pets.config file into the ```C:\<model-master>\research\object_detection\training```.
+- Edit the faster_rcnn_inception_v2_pets.config file as below:
+  - Update the num_classes parameter as per your requirement at line 9 (for me it was 1).
+  - At line 106 change fine_tune_checkpoint to ``` "C:<model-master>/research/object_detection/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt" ```
+  - At line 123 and 125 update the input_path and label_map_path as ```"C:<model-master>/research/object_detection/train.record"``` and ```"C:<model-master>/research/object_detection/training/labelmap.pbtxt"``` respectively.
+  - Update the num_examples parameter at line 130 with number of images in the \images\test directory.
+  - At line 135 and 137 update the input_path and label_map_path to ```"C:<model-master>/research/object_detection/test.record"``` and ```"C:<model-master>/research/object_detection/training/labelmap.pbtxt"``` respectively.
+
+# Step 5: Begin training
+Enter the following command to begin training of your model:
+
+```(objdet) C:\<model-master>\research\object_detection>python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config```
+
+To view the training progress you can use tensorboard as follows:
+
+```(objdet) C:\<model-master>\research\object_detection>tensorboard --logdir=training```
+
+Once the training is finished you can export the inference graph at \object_detection\inference_graph using following commands;
+
+```(objdet) C:\<model-master>\research\object_detection>python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_pets.config --trained_checkpoint_prefix training/model.ckpt-XXXX --output_directory inference_graph```
+
+# Step 6: Test the model
+I have shared my code that tend to detect the human heads that displays Alert message if there is congestion. More details can be found in our paper given in the Citation section.
+
+You may need to update some path variables before initiating the execution.
 
 # Citation
 ```
