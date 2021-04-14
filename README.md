@@ -37,6 +37,7 @@ Open the anaconda command prompt and type the following:
 - (objdet) C:\> pip install opencv-python
 - (objdet) C:\> pip install jupyter
 ```
+Append the PYTHONPATH environment variable as PYTHONPATH=<Model master path>;<Model masterpath>\research;<Model master path>\research\slim;
 
 # Citation
 ```
